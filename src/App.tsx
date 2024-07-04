@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <div className='bg-slate-200'>
           <Header />
           <main className='min-h-screen pt-7'>
-              <div className="w-3/4 bg-white mx-auto shadow-2xl p-3 rounded-md">
+              <div className="w-3/4 bg-white mx-auto shadow-2xl p-3 rounded-md min-h-screen">
                   <Editor
                       cellPlugins={cellPlugins}
                       value={editorValue}
