@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
+import React, { useState } from 'react';
+import Editor, { Value } from '@react-page/editor';
+import '@react-page/editor/lib/index.css';
+import slate from '@react-page/plugins-slate';
+import image from '@react-page/plugins-image';
+import spacer from '@react-page/plugins-spacer';
 
-function App() {
+const cellPlugins = [
+  slate(),
+  image,
+  spacer
+];
+
+const App: React.FC = () => {
+  const [editorValue, setEditorValue] = useState<Value | null>(null);
+
+  const handleChange = (value: Value) => {
+    setEditorValue(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <h1>Конструктор страницы</h1>
+        <Editor
+            cellPlugins={cellPlugins}
+            value={editorValue}
+            onChange={handleChange}
+        />
+      </div>
   );
-}
+};
 
 export default App;
