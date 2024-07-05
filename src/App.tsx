@@ -23,6 +23,10 @@ const App: React.FC = () => {
                       onChange={handleChange}
                   />
               </div>
+              <div className="w-3/4 bg-gray-400 mx-auto shadow-2xl p-3 rounded-md flex items-center justify-center">
+                  <button className='border-2 border-blue-500 p-5 rounded-md mr-2 hover:bg-blue-500' onClick={() => setEditorValue(null)}>Сбросить</button>
+                  <button className='border-2 border-blue-500 p-5 rounded-md ml-2 hover:bg-blue-500'>Сохранить</button>
+              </div>
           </main>
       </div>
 
