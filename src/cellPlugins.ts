@@ -21,7 +21,7 @@ const fakeImageUploadService: (url: string) => ImageUploadType =
                 if (counter > 9) {
                     clearInterval(interval);
                     alert(
-                        'Image has not actually been uploaded to a server. Check documentation for information on how to provide your own upload function.'
+                        'В данный момент отсутствует загрузка изображений на сервер. Данный файл может быть перезаписан!'
                     );
                     resolve({ url: URL.createObjectURL(file) });
                 }
