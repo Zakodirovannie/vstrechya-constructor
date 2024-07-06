@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import slate from "@react-page/plugins-slate";
 import { imagePlugin } from '@react-page/plugins-image';
 import spacer from "@react-page/plugins-spacer";
@@ -11,32 +13,35 @@ import '@react-page/plugins-video/lib/index.css';
 import '@react-page/plugins-image/lib/index.css';
 import '@react-page/plugins-slate/lib/index.css';
 
-const fakeImageUploadService: (url: string) => ImageUploadType =
-    (defaultUrl) => (file, reportProgress) => {
+const ImageUploadService = (endpoint: string): ImageUploadType => {
+    return (file, reportProgress) => {
         return new Promise((resolve, reject) => {
-            let counter = 0;
-            const interval = setInterval(() => {
-                counter++;
-                reportProgress(counter * 10);
-                if (counter > 9) {
-                    clearInterval(interval);
-                    alert(
-                        'В данный момент отсутствует загрузка изображений на сервер. Данный файл может быть перезаписан!'
-                    );
-                    resolve({ url: URL.createObjectURL(file) });
-                }
-            }, 100);
+            const formData = new FormData();
+            formData.append('img', file);
+
+            axios.post(endpoint, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+                .then(response => {
+                    resolve({url: response.data['image_url']});
+                })
+                .catch(error => {
+                    reject(error);
+                });
         });
     };
+};
 
 
 const cellPlugins = [
     slate(),
-    imagePlugin({ imageUpload: fakeImageUploadService('/images/react.png') }),
+    imagePlugin({ imageUpload: ImageUploadService('https://engine.vstrechya.space/constructor/upload-image/') }),
     spacer,
     video,
     background({
-        imageUpload: fakeImageUploadService('/images/sea-bg.jpg'),
+        imageUpload: ImageUploadService('https://engine.vstrechya.space/constructor/upload-image/'),
         enabledModes:
             ModeEnum.COLOR_MODE_FLAG |
             ModeEnum.IMAGE_MODE_FLAG |
