@@ -41,7 +41,7 @@ const NavBar = () => {
                         </button>
                     </li>
                     <li>
-                        <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}`)}>КОНСТРУКТОР ВЫСТАВОК
+                        <button className={styles.navButtons} onClick={() => window.location.assign(`/`)}>КОНСТРУКТОР ВЫСТАВОК
                         </button>
                     </li>
                     <li>

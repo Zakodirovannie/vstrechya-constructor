@@ -1,5 +1,6 @@
 // Route.tsx
 import React, { useState, useCallback } from 'react';
+import './App.css';
 import Editor, {Value} from '@react-page/editor';
 import '@react-page/editor/lib/index.css';
 import cellPlugins from "../../cellPlugins";
