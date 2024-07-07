@@ -33,7 +33,6 @@ const ImageUploadService = (endpoint: string): ImageUploadType => {
     };
 };
 
-
 const cellPlugins = [
     slate(),
     imagePlugin({ imageUpload: ImageUploadService('https://engine.vstrechya.space/constructor/upload-image/') }),
