@@ -27,7 +27,9 @@ const SubmitButton = ({name}) => {
     };
 
     return (
-        <button className='border-2 border-beige p-5 rounded-md mr-2 hover:bg-beige transition ease-in-out delay-50' onClick={handleExport}>Export Page</button>
+        <button className='border-2 border-beige p-5 rounded-md mr-2 hover:bg-beige transition ease-in-out delay-50' onClick={handleExport}>
+            Сохранить
+        </button>
     );
 };
 
