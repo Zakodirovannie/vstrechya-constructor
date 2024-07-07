@@ -37,9 +37,10 @@ const App: React.FC = () => {
                   type="text"
                   onChange={(e) => {
                       setName(e.target.value)
-                      console.log(name)
                   }}
-                  value={name}/>
+                  value={name}
+                  required={true}
+              />
               <div className="w-3/4 mx-auto min-h-screen">
                   <Editor
                       cellPlugins={cellPlugins}
@@ -55,7 +56,6 @@ const App: React.FC = () => {
                       onClick={() => setEditorValue(null)}>Сбросить
                   </button>
                   <SubmitButton name={name}/>
-
               </div>
           </main>
       </div>

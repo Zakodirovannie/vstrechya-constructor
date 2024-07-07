@@ -1,21 +1,25 @@
 // src/components/SubmitButton.jsx
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {addField} from "../../redux/EditorSlice/EditorSlice";
+import { useSelector } from 'react-redux';
 import {createExhibition} from "../../api/api.auth";
 
 const SubmitButton = ({name}) => {
     const pageState = useSelector((state) => state.editor.page);
-    const dispatch = useDispatch();
 
     const handleExport = async () => {
         try {
-            if (!name){
-                return
+            if (!name || !pageState.rows) {
+                console.error('Name and page state are required');
+                return;
             }
-            dispatch(addField(name));
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('status', 0);
+            const serializedPageState = JSON.stringify(pageState);
+            formData.append('json_data', serializedPageState);
+            console.log(formData.get('json_data'));
             //Отправляем данные на сервер
-            const response = await createExhibition(pageState)
+            const response = await createExhibition(formData);
             console.log('Page exported successfully:', response.data);
         } catch (error) {
             console.error('Error exporting the page:', error);

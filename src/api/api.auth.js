@@ -18,8 +18,8 @@ export const getMyInfo = () => {
     return instance.get(`/users/me/`).catch(() => refreshToken());
 }
 
-export const createExhibition = (data) => {
-    return instance.post(`/constructor/collections/create/`, data, {
+export const createExhibition = (exhibition) => {
+    return instance.post(`/constructor/collections/create/`, exhibition, {
         headers: {
             'Content-Type': 'application/json'
         }
