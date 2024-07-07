@@ -1,31 +1,21 @@
 // src/components/SubmitButton.jsx
 import React from 'react';
-import { useSelector } from 'react-redux';
-import getValue from '@react-page/editor';
-import {instance} from "../../api/api.config";
+import { useSelector, useDispatch } from 'react-redux';
+import {addField} from "../../redux/EditorSlice/EditorSlice";
+import {createExhibition} from "../../api/api.auth";
 
-const SubmitButton = () => {
+const SubmitButton = ({name}) => {
     const pageState = useSelector((state) => state.editor.page);
-
-    const handleCLick = () => {
-        console.log('Value: ', getValue(pageState));
-    };
+    const dispatch = useDispatch();
 
     const handleExport = async () => {
         try {
-            // Получаем текущее состояние страницы
-            const pageValue = getValue(pageState);
-
-            // Сериализуем состояние в JSON
-            const serializedPage = JSON.stringify(pageValue);
-
-            // Отправляем данные на сервер
-            const response = await instance.post('https://your-server.com/api/export', serializedPage, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
+            if (!name){
+                return
+            }
+            dispatch(addField(name));
+            //Отправляем данные на сервер
+            const response = await createExhibition(pageState)
             console.log('Page exported successfully:', response.data);
         } catch (error) {
             console.error('Error exporting the page:', error);
@@ -33,7 +23,7 @@ const SubmitButton = () => {
     };
 
     return (
-        <button className='border-2 border-blue-500 p-5 rounded-md ml-2 hover:bg-blue-500' onClick={handleCLick}>Export Page</button>
+        <button className='border-2 border-beige p-5 rounded-md mr-2 hover:bg-beige transition ease-in-out delay-50' onClick={handleExport}>Export Page</button>
     );
 };
 

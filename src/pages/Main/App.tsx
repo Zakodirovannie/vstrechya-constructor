@@ -7,13 +7,17 @@ import cellPlugins from "../../cellPlugins";
 import NavBar from "../../components/NavigationBar/NavBar";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import TRANSLATIONS from '../../ru';
+import {useDispatch} from "react-redux";
+import {setPage} from "../../redux/EditorSlice/EditorSlice";
 
 const App: React.FC = () => {
   const [editorValue, setEditorValue] = useState<Value | null>(null);
+  const [name, setName] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = (value: Value) => {
     setEditorValue(value);
-    console.log('Value: ', value);
+    dispatch(setPage(value));
   };
 
     const uiTranslator = useCallback((label?: string | null) => {
@@ -26,7 +30,16 @@ const App: React.FC = () => {
   return (
       <div className='bg-beige'>
           <NavBar />
-          <main className='min-h-screen pt-7'>
+          <main className='min-h-screen pt-7 flex flex-col'>
+              <input
+                  className="bg-white mx-auto shadow-2xl p-3 rounded-md w-2/5 font-bold text-3xl mb-10"
+                  placeholder={'Название выставки'}
+                  type="text"
+                  onChange={(e) => {
+                      setName(e.target.value)
+                      console.log(name)
+                  }}
+                  value={name}/>
               <div className="w-3/4 mx-auto min-h-screen">
                   <Editor
                       cellPlugins={cellPlugins}
@@ -41,7 +54,7 @@ const App: React.FC = () => {
                       className='border-2 border-beige p-5 rounded-md mr-2 hover:bg-beige transition ease-in-out delay-50'
                       onClick={() => setEditorValue(null)}>Сбросить
                   </button>
-                  <SubmitButton/>
+                  <SubmitButton name={name}/>
 
               </div>
           </main>

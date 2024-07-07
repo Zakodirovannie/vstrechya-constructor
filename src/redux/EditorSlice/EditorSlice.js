@@ -13,12 +13,16 @@ const editorSlice = createSlice({
         setPage(state, action) {
             state.page = action.payload;
         },
-        updatePage(state, action) {
-            state.page = { ...state.page, ...action.payload };
+        addField(state, action) {
+            console.log(action.payload);
+            const fieldValue = action.payload;
+            if (fieldValue) {
+                state.page['name'] = fieldValue;
+            }
         }
     }
 });
 
-export const { setPage, updatePage } = editorSlice.actions;
+export const { setPage, addField } = editorSlice.actions;
 
 export default editorSlice.reducer;

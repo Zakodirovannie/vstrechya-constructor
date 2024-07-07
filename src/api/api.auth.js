@@ -1,8 +1,5 @@
 import {instance} from "./api.config.js";
 
-const BASE_URL = "https://vstrechya.space";
-const BASE = 'http://localhost:5173'
-
 export const login = (email, password) => {
     return instance.post("/auth/signin/", {email, password})
 }
@@ -19,4 +16,12 @@ export const refreshToken = () => {
 
 export const getMyInfo = () => {
     return instance.get(`/users/me/`).catch(() => refreshToken());
+}
+
+export const createExhibition = (data) => {
+    return instance.post(`/constructor/collections/create/`, data, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }

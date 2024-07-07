@@ -1,11 +1,10 @@
 .main{
     display: flex;
     flex-direction: column;
-    margin: 0px auto;
+    margin: 0 auto;
     width: 100%;
     max-width: 1920px;
-    background-color: rgb(232, 210, 182);
-    background: url(../../assets/1st_background.png) center center / 100% 100% no-repeat;
+    background: rgb(232, 210, 182) url(../../assets/1st_background.png) no-repeat center center;
     overflow: hidden;
 }
 

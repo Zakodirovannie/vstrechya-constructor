@@ -17,14 +17,14 @@
     align-items: center;
     /* box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75); */
     position: absolute;
-    width: 310px;
+    width: 400px;
     height: auto;
     left: 1130px;
     top: 315px;
 }
 
 .inputLabel {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -34,7 +34,8 @@
 }
 
 .inputLabel .input {
-    margin-top: 5px;
+    margin-top: 15px;
+    line-height: 16px;
 }
 
 .title {
@@ -43,7 +44,7 @@
 }
 
 .input {
-    width: 250px;
+    width: 350px;
     margin-top: 20px;
     height: 20px;
     padding: 5px;
@@ -127,10 +128,10 @@
 
 .exit {
     top: 3px;
-    left: 280px;
+    left: 370px;
     position: absolute;
     border-radius: 8px;
-    padding: 0%;
+    padding: 0;
     background-color: #fdf4e3;
     border: none;
     cursor: pointer;
