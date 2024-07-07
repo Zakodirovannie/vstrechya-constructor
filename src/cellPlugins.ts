@@ -11,6 +11,7 @@ import '@react-page/plugins-spacer/lib/index.css';
 import '@react-page/plugins-video/lib/index.css';
 import '@react-page/plugins-image/lib/index.css';
 import '@react-page/plugins-slate/lib/index.css';
+import {instance} from "./api/api.config";
 
 const ImageUploadService = (endpoint: string): ImageUploadType => {
     return (file, reportProgress) => {
@@ -18,7 +19,7 @@ const ImageUploadService = (endpoint: string): ImageUploadType => {
             const formData = new FormData();
             formData.append('img', file);
 
-            axios.post(endpoint, formData, {
+            instance.post(endpoint, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -52,7 +52,7 @@ const NavBar = () => {
                                                                            src={userImage ? userImage : miniProfile}
                                                                            alt='Home'/> </a> :
                         <div className={styles.loginBox}>
-                            <a className={styles.loginButton} href={BASE_URL + "/login"}>ВХОД</a>
+                            <a className={styles.loginButton} href={"/login"}>ВХОД</a>
                         </div>
                     }
                 </ul>
