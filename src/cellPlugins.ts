@@ -1,4 +1,3 @@
-import axios from 'axios';
 import slate from "@react-page/plugins-slate";
 import { imagePlugin } from '@react-page/plugins-image';
 import spacer from "@react-page/plugins-spacer";
