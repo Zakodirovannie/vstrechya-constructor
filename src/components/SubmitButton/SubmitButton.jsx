@@ -16,8 +16,7 @@ const SubmitButton = ({name}) => {
             formData.append('name', name);
             formData.append('status', 0);
             const serializedPageState = JSON.stringify(pageState);
-            formData.append('json_data', serializedPageState);
-            console.log(formData.get('json_data'));
+            formData.append('html_content', serializedPageState);
             //Отправляем данные на сервер
             const response = await createExhibition(formData);
             console.log('Page exported successfully:', response.data);

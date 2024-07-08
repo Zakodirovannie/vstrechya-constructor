@@ -9,6 +9,7 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import TRANSLATIONS from '../../ru';
 import {useDispatch} from "react-redux";
 import {setPage} from "../../redux/EditorSlice/EditorSlice";
+import Footer from "../../components/Footer/Footer";
 
 const App: React.FC = () => {
   const [editorValue, setEditorValue] = useState<Value | null>(null);
@@ -41,7 +42,7 @@ const App: React.FC = () => {
                   value={name}
                   required={true}
               />
-              <div className="w-3/4 mx-auto min-h-screen">
+              <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl">
                   <Editor
                       cellPlugins={cellPlugins}
                       value={editorValue}
@@ -58,6 +59,7 @@ const App: React.FC = () => {
                   <SubmitButton name={name}/>
               </div>
           </main>
+          <Footer />
       </div>
 
   );
