@@ -32,17 +32,17 @@ const App: React.FC = () => {
       <div className='bg-beige'>
           <NavBar />
           <main className='min-h-screen pt-7 flex flex-col'>
-              <input
-                  className="bg-white mx-auto shadow-2xl p-3 rounded-md w-2/5 font-bold text-3xl mb-10"
-                  placeholder={'Название выставки'}
-                  type="text"
-                  onChange={(e) => {
-                      setName(e.target.value)
-                  }}
-                  value={name}
-                  required={true}
-              />
-              <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl">
+              <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl flex flex-col">
+                  <input
+                      className="bg-white mx-auto shadow-2xl p-3 rounded-md w-auto font-bold text-3xl mb-10"
+                      placeholder={'Название выставки'}
+                      type="text"
+                      onChange={(e) => {
+                          setName(e.target.value)
+                      }}
+                      value={name}
+                      required={true}
+                  />
                   <Editor
                       cellPlugins={cellPlugins}
                       value={editorValue}
