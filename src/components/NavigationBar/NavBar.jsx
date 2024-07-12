@@ -27,7 +27,7 @@ const NavBar = () => {
     return <>
         <header>
             <nav className={styles.navbar}>
-                <a className={styles.home} href="/"><img src={logo} width="240" alt='Home'/> </a>
+                <a className={styles.home} href={BASE_URL}><img src={logo} width="240" alt='Home'/> </a>
                 <ul className={`${styles.navigation} ${menuActive ? styles.active : ''}`}>
                     <li>
                         <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}/exhibitions`)}>КАТАЛОГ
