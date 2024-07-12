@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes as Switch } from 'react-router-d
 import App from './pages/Main/App';
 import Auth from './pages/Login/Login';
 import PrivateRoute from "./PrivateRoute";
+import ExhibitionsPage from "./pages/Exhibitions/ExhibitionsPage";
+import ExhibitionCard from "./components/Exhibitions-components/ExhibitionCard/ExhibitionCard";
 
 const RoutePath: React.FC = () => {
     return (
@@ -11,7 +13,8 @@ const RoutePath: React.FC = () => {
             <Switch>
                 <Route path="" element={<PrivateRoute />} >
                     <Route path="/" element={<App />} />
-                    <Route path="/me/exhibitions" element={<App />} />
+                    <Route path="/me/exhibitions" element={<ExhibitionsPage user={'me'} />} />
+                    <Route path='/me/exhibitions/:id' element={<ExhibitionCard />} />
                 </Route>
                 <Route path="/login" element={<Auth />} />
             </Switch>

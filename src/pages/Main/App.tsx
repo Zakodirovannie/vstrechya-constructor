@@ -1,5 +1,5 @@
 // Route.tsx
-import React, { useState, useCallback } from 'react';
+import React, {useState, useCallback} from 'react';
 import './App.css';
 import Editor, {Value} from '@react-page/editor';
 import '@react-page/editor/lib/index.css';
@@ -12,21 +12,21 @@ import {setPage} from "../../redux/EditorSlice/EditorSlice";
 import Footer from "../../components/Footer/Footer";
 
 const App: React.FC = () => {
-  const [editorValue, setEditorValue] = useState<Value | null>(null);
-  const [name, setName] = useState('');
+  const [editorValue, setEditorValue] = useState<Value | null>(null)
+  const [name, setName] = useState('')
   const dispatch = useDispatch();
 
   const handleChange = (value: Value) => {
     setEditorValue(value);
     dispatch(setPage(value));
-  };
+  }
 
-    const uiTranslator = useCallback((label?: string | null) => {
+  const uiTranslator = useCallback((label?: string | null) => {
         if (label && TRANSLATIONS[label] !== undefined) {
-            return TRANSLATIONS[label];
+            return TRANSLATIONS[label]
         }
-        return `${label}(to translate)`;
-    }, []);
+        return `${label}(to translate)`
+  }, [])
 
   return (
       <div className='bg-beige'>

@@ -18,10 +18,15 @@ export const getMyInfo = () => {
     return instance.get(`/users/me/`).catch(() => refreshToken());
 }
 
+export const getExhibitions = async (id) => {
+    const response = await instance.get(`/users/${id}/`)
+    return response.data.collections
+}
+export const getExhibitionDetails = (id) => {
+    return instance.get(`/constructor/collections/${id}/`)
+}
+
 export const createExhibition = (exhibition) => {
     return instance.post(`/constructor/collections/create/`, exhibition, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
     });
 }
