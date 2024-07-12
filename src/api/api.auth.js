@@ -20,7 +20,7 @@ export const getMyInfo = () => {
 
 export const getExhibitions = async (id) => {
     const response = await instance.get(`/users/${id}/`)
-    return response.data.collections
+    return response.data.exibitions
 }
 export const getExhibitionDetails = (id) => {
     return instance.get(`/constructor/collections/${id}/`)
