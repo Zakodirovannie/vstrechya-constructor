@@ -1,6 +1,6 @@
 // Route.tsx
 import React, {useState, useCallback} from 'react';
-import './App.css';
+import styles from "./App.module.css";
 import Editor, {Value} from '@react-page/editor';
 import '@react-page/editor/lib/index.css';
 import cellPlugins from "../../cellPlugins";
@@ -29,8 +29,9 @@ const App: React.FC = () => {
   }, [])
 
   return (
-      <div className='bg-beige'>
+      <div className={styles.main}>
           <NavBar />
+          <div className={styles.spacer}></div>
           <main className='min-h-screen pt-7 flex flex-col'>
               <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl flex flex-col">
                   <input
@@ -51,9 +52,9 @@ const App: React.FC = () => {
                       uiTranslator={uiTranslator}
                   />
               </div>
-              <div className="w-3/4 bg-beige-dark mx-auto shadow-2xl p-3 rounded-md flex items-center justify-center">
+              <div className="w-3/4 bg-transparent mx-auto shadow-2xl p-3 rounded-md flex items-center justify-center">
                   <button
-                      className='border-2 border-beige p-5 rounded-md mr-2 hover:bg-beige transition ease-in-out delay-50'
+                      className='border-0 p-5 rounded-md mr-2 hover:bg-black hover:text-white transition ease-in-out delay-50'
                       onClick={() => setEditorValue(null)}>Сбросить
                   </button>
                   <SubmitButton name={name}/>

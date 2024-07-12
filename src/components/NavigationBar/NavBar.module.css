@@ -1,12 +1,13 @@
 /* src/components/Header.css */
 header {
-    background-color: rgb(193, 167, 127);
+    background-color: transparent;
     display: flex;
     width: 100%;
     height: 110px;
-    position: relative;
-    /*top: 0;*/
-    /*z-index: 10;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
     padding: 0 20px;
     box-sizing: border-box;
 }
@@ -18,10 +19,11 @@ header {
 .navbar {
     color: rgba(0, 0, 0, 1);
     display: flex;
-    font: 400 18px/1.22 "Montserrat", Helvetica, Arial, serif;
-    width: 100%;
+    font: 400 18px/1.22 Merriweather, Helvetica, Arial, serif;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
+    margin:auto;
 }
 
 .home {
@@ -48,7 +50,7 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
-    font: 400 18px/1.22 "Montserrat", Helvetica, Arial, serif;
+    font: 400 18px/1.22 Merriweather, Helvetica, Arial, serif;
 }
 
 .navButtons:hover {
@@ -65,7 +67,7 @@ header {
     background: #FFFFFF;
     border: solid #ccc;
     border-radius: 10px;
-    font: 400 16px/1.22 "Montserrat", Helvetica, Arial, serif;
+    font: 400 16px/1.22 Merriweather, Helvetica, Arial, serif;
     margin-left: auto;
 }
 
@@ -80,21 +82,67 @@ header {
 
 .line {
     position: absolute;
-    width: 98%;
-    height: 2px;
-    left: 30px;
+    width: 95%;
+    height: 3px;
+    left: 50px;
     top: 100px;
     background: #000000;
 }
 
 .profile {
-    margin-left: 45px;
+    margin-left: 0;
 }
 
 .profile_img {
     height: 51px;
     width: 48px;
     border-radius: 50px;
+}
+
+.settingsToggle {
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.settingsToggle img {
+    margin-left: 9px;
+    margin-bottom: 15px;
+}
+
+.settings {
+    position: absolute;
+    right: 44px;
+    top: 100px;
+    width: 180px;
+    height: 154px;
+    background-color: rgba(255,255,255,.83);
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsButton {
+    border-radius: 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 13px;
+    font: 200 18px/1.22 Merriweather, Helvetica, Arial, serif;
+}
+
+.settingsButton:hover {
+    box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.settingsButton img {
+    margin: 6px 12px 6px 10px;
+}
+
+.settingsButton span {
+    margin: 6px auto;
 }
 
 /* Кнопка для открытия меню на маленьких экранах */
@@ -180,4 +228,8 @@ header {
 /* Показываем меню при активной кнопке */
 .navigation.active {
     display: flex;
+}
+
+.hidden {
+    display: none;
 }

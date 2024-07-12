@@ -3,6 +3,10 @@ import {instance} from "./api.config.js";
 export const login = (email, password) => {
     return instance.post("/auth/signin/", {email, password})
 }
+export const logout = () => {
+    localStorage.removeItem('refresh-token');
+    localStorage.removeItem('access-token');
+}
 
 export const refreshToken = () => {
     return instance.post("/auth/api/token/refresh/", {

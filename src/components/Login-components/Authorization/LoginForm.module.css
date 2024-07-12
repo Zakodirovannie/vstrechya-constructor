@@ -8,7 +8,7 @@
 }
 
 .form {
-     /*border: 1px solid black;*/
+    /* border: 1px solid black; */
     background-color: white;
     padding: 30px 70px;
     border-radius: 19px;
@@ -17,43 +17,46 @@
     align-items: center;
     /* box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75); */
     position: absolute;
-    width: 400px;
+    width: 310px;
     height: auto;
     left: 1130px;
     top: 315px;
 }
 
 .inputLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font: 400 18px "Montserrat", Helvetica, Arial, serif;
+    font: 400 18px Merriweather, Helvetica, Arial, serif;
     color: rgba(0, 0, 0, 0.66);
     letter-spacing: 1px;
 }
 
 .inputLabel .input {
-    margin-top: 15px;
-    line-height: 16px;
+    margin-top: 5px;
 }
 
 .title {
-    font: 700 32px "Montserrat", Helvetica, Arial, serif;
+    font: 700 32px Merriweather, Helvetica, Arial, serif;
     color: rgba(0, 0, 0, 1);
 }
 
 .input {
-    width: 350px;
+    width: 250px;
     margin-top: 20px;
     height: 20px;
+    border: 1px solid gray;
     padding: 5px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid gray;
+    font-family: Merriweather, sans-serif;
 }
 
+.marketing {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
 
 .marketing > input {
     margin-right: 10px;
@@ -65,8 +68,8 @@
     border-radius: 5px;
     color: white;
     background-color: #1c247a;
-    border: none;   
-    cursor: pointer; 
+    border: none;
+    cursor: pointer;
 }
 
 .messages {
@@ -87,16 +90,15 @@
     font-size: 12px;
     color: red;
     align-self: flex-start;
-    margin: auto;
-    margin-top: 10px;
+    margin: 10px auto auto;
 }
 
 .signup {
     color: rgba(0, 0, 0, .54);
-    margin-top: 4px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Merriweather, serif;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -109,12 +111,13 @@
 
 .login {
     margin-top: 60px;
-    background: rgba(232, 210, 182, 0.74);
+    background-color: #1e1e1e;
+    color: white;
     border-radius: 10px;
     border: none;
     width: 150px;
     height: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Merriweather, serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -126,17 +129,49 @@
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+.vkAuth {
+    display: flex;
+    background-color: #0077ff;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0;
+    outline: none;
+    border: none;
+}
+
+.vkAuth:hover {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.vkIcon {
+    margin-left: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.vkAuth p {
+    margin: 13px auto 13px 13px;
+    font-family: Merriweather, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
 .exit {
     top: 3px;
-    left: 370px;
+    left: 415px;
     position: absolute;
     border-radius: 8px;
     padding: 0;
-    background-color: #fdf4e3;
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
 .exit img {
-    margin: 7px;
+    height: 26px;
+    width: 26px;
 }

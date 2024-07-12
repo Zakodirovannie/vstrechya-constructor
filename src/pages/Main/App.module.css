@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.spacer {
+    height: 110px;
+}
+
+.main {
+    background: url('../../assets/default_background.png');
+}

@@ -16,7 +16,7 @@ const SubmitButton = ({name}) => {
             formData.append('name', name);
             formData.append('status', 0);
             const serializedPageState = JSON.stringify(pageState);
-            formData.append('json_data', serializedPageState);
+            formData.append('html_content', serializedPageState);
             //Отправляем данные на сервер
             const response = await createExhibition(formData);
             console.log('Page exported successfully:', response.data);
@@ -26,7 +26,7 @@ const SubmitButton = ({name}) => {
     };
 
     return (
-        <button className='border-2 border-beige p-5 rounded-md mr-2 hover:bg-beige transition ease-in-out delay-50' onClick={handleExport}>
+        <button className='border-0 p-5 rounded-md mr-2 hover:bg-black hover:text-white transition ease-in-out delay-50' onClick={handleExport}>
             Сохранить
         </button>
     );

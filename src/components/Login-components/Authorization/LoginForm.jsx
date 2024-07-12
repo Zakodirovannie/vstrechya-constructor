@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from './LoginForm.module.css'
 import exit from '../../../assets/exit.png'
+import vkIcon from '../../../assets/vkIcon.png'
 import {login} from "../../../api/api.auth";
 import {useDispatch} from "react-redux";
 import {setAuth} from "../../../redux/AuthSlice/AuthSlice";
@@ -50,7 +51,7 @@ const LoginForm = () => {
                         type="email"
                         name="email"
                         id="email"
-                        className={styles.input} 
+                        className={styles.input}
                         required
                         onChange={e => setEmail(e.target.value)}
                         value={email}
@@ -69,6 +70,11 @@ const LoginForm = () => {
                     />
                 </div>
                 <button className={styles.login} type="submit">Войти</button>
+                <a  href="/signup" className={styles.signup}>Регистрация</a>
+                <button className={styles.vkAuth} type={"button"}>
+                    <img className={styles.vkIcon} src={vkIcon} alt={'VK'} />
+                    <p>Вход через VK</p>
+                </button>
                 {isLogin && <span className={styles.success}>Вы успешно вошли в аккаунт</span>}
                 {isError && <span className={styles.error}>{errorMessage}</span>}
             </form>
