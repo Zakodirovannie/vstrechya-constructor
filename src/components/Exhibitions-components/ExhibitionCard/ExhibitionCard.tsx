@@ -13,12 +13,12 @@ import {useDispatch} from "react-redux";
 interface Exhibition {
     "id": 0,
     "name": "string",
-    "collection_image": "string",
+    "collection_image": string,
     "created_at": "2024-07-12T13:48:26.103Z",
     "updated_at": "2024-07-12T13:48:26.103Z",
     "status": 0,
-    "html_content": "string",
-    "json_data": "string"
+    "html_content": string,
+    "json_data": string
 }
 
 const ExhibitionCard = () => {
@@ -26,14 +26,14 @@ const ExhibitionCard = () => {
     const [exhibition, setExhibition] = useState<Exhibition>({
         "id": 0,
         "name": "string",
-        "collection_image": "string",
+        "collection_image": "",
         "created_at": "2024-07-12T13:48:26.103Z",
         "updated_at": "2024-07-12T13:48:26.103Z",
         "status": 0,
-        "html_content": "string",
-        "json_data": "string"
+        "html_content": "",
+        "json_data": ""
     });
-    const [editorValue, setEditorValue] = useState<Value | null>(JSON.parse(exhibition.html_content))
+    const [editorValue, setEditorValue] = useState<Value | null>(null)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -41,7 +41,9 @@ const ExhibitionCard = () => {
             try {
                 const response = await getExhibitionDetails(id)
                 setExhibition(response.data);
-                console.log(response.data[0])
+                const val = JSON.parse(exhibition.html_content);
+                setEditorValue(val);
+                console.log(response.data);
             } catch (e) {
                 console.log('Error fetching exhibition details: ', e)
             }
