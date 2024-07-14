@@ -1,9 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
+import {getCookie} from "../../api/cookie";
+
+const csrfToken = getCookie('csrftoken')
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    isAuth: localStorage.getItem('access-token')!==null,
+    isAuth: csrfToken !== null,
   },
   reducers: {
     setAuth(state, action) {
