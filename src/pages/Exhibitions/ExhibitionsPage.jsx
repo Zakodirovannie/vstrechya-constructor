@@ -3,7 +3,7 @@ import Footer from '../../components/Footer/Footer.jsx'
 import NavBar from "../../components/NavigationBar/NavBar";
 import ExhibitionsList from "../../components/Exhibitions-components/Exhibitions/ExhibitionsList";
 import React, {useEffect, useState} from "react";
-import {getExhibitionDetails, getExhibitions} from "../../api/api.auth";
+import {getExhibitions} from "../../api/api.auth";
 import {useNavigate} from "react-router-dom";
 
 function ExhibitionsPage({user = '0'}) {
@@ -13,12 +13,6 @@ function ExhibitionsPage({user = '0'}) {
     const fetchData = async () => {
       try {
         const response = await getExhibitions(user)
-        for(let i = 0; i < response.length; i++) {
-          await getExhibitionDetails(response[i].id)
-              .then(res => res.data[0].image_url)
-              .then(res => response[i].image_url = res)
-              .catch(e => console.log(e));
-        }
         setCollections(response)
       } catch (e) {
         console.log(e)

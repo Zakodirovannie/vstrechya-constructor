@@ -35,28 +35,9 @@ export const changeProfileInfo = (id, last_name, first_name, image_url, phone) =
     })
 }
 
-export const getCollections = async (id) => {
-    const response = await instance.get(`/users/${id}/`)
-    return response.data.collections
-}
-
-export const getCollectionDetails = (id) => {
-    return instance.get(`/collections/${id}/`)
-}
-
-export const createCollection = (name) => {
-    return instance.post(`/collections/create/`, {
-        name,
-    })
-}
-
-export const updateCollection = (id, formData) => {
-    return instance.post(`/collections/${id}/items/add/`, formData);
-}
-
 export const getExhibitions = async (id) => {
     const response = await instance.get(`/users/${id}/`)
-    return response.data.exibitions
+    return response.data.exhibitions
 }
 export const getExhibitionDetails = (id) => {
     return instance.get(`/constructor/collections/${id}/`)

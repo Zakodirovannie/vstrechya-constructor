@@ -15,7 +15,7 @@ const ExhibitionsList = ({ exhibitions }) => {
                 <div className={styles.item} key={index} onClick={() => navigate(`${item.id}`)}>
                     <img
                         className={styles.image2}
-                        src={item.image_url}
+                        src={item.collection_image}
                         alt={`Коллекция пользователя`}
                     />
                     <h4 className={styles.highlight}>{item.name}</h4>
