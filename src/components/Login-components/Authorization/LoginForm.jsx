@@ -3,9 +3,10 @@ import styles from './LoginForm.module.css'
 import exit from '../../../assets/exit.png'
 import vkIcon from '../../../assets/vkIcon.png'
 import {login} from "../../../api/api.auth";
+import {useNavigate} from "react-router-dom";
+import {getCookie} from "../../../api/cookie";
 import {useDispatch} from "react-redux";
 import {setAuth} from "../../../redux/AuthSlice/AuthSlice";
-import {useNavigate} from "react-router-dom";
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
@@ -19,13 +20,12 @@ const LoginForm = () => {
     const handleSubmit = async(evt) => {
         evt.preventDefault()
         try {
-            const response = await login(email, password)
+            await login(email, password)
             setIsLogin(true)
             setIsError(false)
-            localStorage.setItem('access-token', response.data.access)
-            localStorage.setItem('refresh-token', response.data.refresh)
-            dispatch(setAuth(localStorage.getItem('access-token')!==null))
-            navigate(-1)
+            const csrfToken = getCookie('csrftoken')
+            dispatch(setAuth(csrfToken !== null))
+            navigate('/profile')
         } catch (e) {
             if (e.response && (e.response.status === 401 || e.response.status === 400)) {
                 setIsError(true);
@@ -71,8 +71,9 @@ const LoginForm = () => {
                 </div>
                 <button className={styles.login} type="submit">Войти</button>
                 <a  href="/signup" className={styles.signup}>Регистрация</a>
-                <button className={styles.vkAuth} type={"button"}>
-                    <img className={styles.vkIcon} src={vkIcon} alt={'VK'} />
+                <button className={styles.vkAuth} type={"button"}
+                        onClick={() => window.location.assign('https://engine.vstrechya.space/login/vk-oauth2/')}>
+                    <img className={styles.vkIcon} src={vkIcon} alt={'VK'}/>
                     <p>Вход через VK</p>
                 </button>
                 {isLogin && <span className={styles.success}>Вы успешно вошли в аккаунт</span>}

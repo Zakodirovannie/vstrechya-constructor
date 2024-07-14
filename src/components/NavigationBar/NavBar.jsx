@@ -30,7 +30,7 @@ const NavBar = () => {
     const handleLogOut = (e) => {
         e.preventDefault();
         logout()
-        navigate('/login')
+        window.location.assign(`${BASE_URL}/login`)
     }
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const NavBar = () => {
     return <>
         <header>
             <nav className={styles.navbar}>
-                <a className={styles.home} href="/"><img src={black_logo} width="240" alt='Home'/> </a>
+                <a className={styles.home} href={`${BASE_URL}/`}><img src={black_logo} width="240" alt='Home'/> </a>
                 <ul className={`${styles.navigation} ${menuActive ? styles.active : ''}`}>
                     <li>
                         <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}/exhibitions`)}>КАТАЛОГ
@@ -94,7 +94,7 @@ const NavBar = () => {
                     }
                 </ul>
             </nav>
-            <div className={styles.line}></div>
+            {/*<div className={styles.line}></div>*/}
             <button className={styles.menu_toggle} aria-label="Open Navigation Menu" onClick={toggleMenu}>
                 ☰
             </button>
