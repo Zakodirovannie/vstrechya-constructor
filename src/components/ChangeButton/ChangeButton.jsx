@@ -25,9 +25,9 @@ const ChangeButton = ({name, id}) => {
     };
 
     return (
-        <button className='border-0 p-5 rounded-md mr-2 hover:bg-black hover:text-white transition ease-in-out delay-50 font-merriweather'
+        <button className='border-0 p-5 rounded-md mr-2 hover:bg-black hover:text-white transition ease-in-out delay-50'
                 onClick={handleExport}>
-            <p className='font-merriweather'>Сохранить</p>
+            Сохранить
         </button>
     );
 };

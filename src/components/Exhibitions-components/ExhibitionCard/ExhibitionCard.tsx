@@ -11,29 +11,8 @@ import {setPage} from "../../../redux/EditorSlice/EditorSlice";
 import {useDispatch} from "react-redux";
 import ChangeButton from "../../ChangeButton/ChangeButton";
 
-interface Exhibition {
-    "id": 0,
-    "name": "string",
-    "collection_image": string,
-    "created_at": "2024-07-12T13:48:26.103Z",
-    "updated_at": "2024-07-12T13:48:26.103Z",
-    "status": 0,
-    "html_content": string,
-    "json_data": string
-}
-
 const ExhibitionCard = () => {
     const { id } = useParams();
-    const [exhibition, setExhibition] = useState<Exhibition>({
-        "id": 0,
-        "name": "string",
-        "collection_image": "",
-        "created_at": "2024-07-12T13:48:26.103Z",
-        "updated_at": "2024-07-12T13:48:26.103Z",
-        "status": 0,
-        "html_content": "",
-        "json_data": ""
-    });
     const [editorValue, setEditorValue] = useState<Value | null>(null)
     const [name, setName] = useState('')
     const dispatch = useDispatch();
@@ -42,7 +21,6 @@ const ExhibitionCard = () => {
         const fetchExhibition = async () => {
             try {
                 const response = await getExhibitionDetails(id)
-                setExhibition(response.data);
                 const val = JSON.parse(response.data.html_content);
                 setEditorValue(val);
                 setName(response.data.name);
