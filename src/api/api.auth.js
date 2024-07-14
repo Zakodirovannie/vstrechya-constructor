@@ -36,14 +36,17 @@ export const changeProfileInfo = (id, last_name, first_name, image_url, phone) =
 }
 
 export const getExhibitions = async (id) => {
-    const response = await instance.get(`/users/${id}/`)
-    return response.data.exhibitions
+    const response = await instance.get(`/users/${id}/`);
+    return response.data.exhibitions;
 }
 export const getExhibitionDetails = (id) => {
-    return instance.get(`/constructor/collections/${id}/`)
+    return instance.get(`/constructor/collections/${id}/`);
 }
 
 export const createExhibition = (exhibition) => {
-    return instance.post(`/constructor/collections/create/`, exhibition, {
-    });
+    return instance.post(`/constructor/collections/create/`, exhibition);
+}
+
+export const patchExhibition = (exhibition, id) => {
+    return instance.patch(`/constructor/collections/${id}/`, exhibition);
 }

@@ -33,9 +33,9 @@ const App: React.FC = () => {
           <NavBar />
           <div className={styles.spacer}></div>
           <main className='min-h-screen pt-7 flex flex-col'>
-              <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl flex flex-col">
+              <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl hover:transition ease-in-out flex flex-col">
                   <input
-                      className="bg-white mx-auto shadow-2xl p-3 rounded-md w-auto font-bold text-3xl mb-10"
+                      className="bg-white mx-auto shadow-2xl p-3 rounded-md w-1/2 font-bold text-3xl mb-10 placeholder:text-center"
                       placeholder={'Название выставки'}
                       type="text"
                       onChange={(e) => {
@@ -51,16 +51,16 @@ const App: React.FC = () => {
                       zoomEnabled={false}
                       uiTranslator={uiTranslator}
                   />
-              </div>
-              <div className="w-3/4 bg-transparent mx-auto shadow-2xl p-3 rounded-md flex items-center justify-center">
-                  <button
-                      className='border-0 p-5 rounded-md mr-2 hover:bg-black hover:text-white transition ease-in-out delay-50'
-                      onClick={() => setEditorValue(null)}>Сбросить
-                  </button>
-                  <SubmitButton name={name}/>
+                  <div className=" p-3 rounded-md flex items-center justify-center">
+                      <button
+                          className='border-0 p-5 rounded-md mr-2 hover:bg-black hover:text-white transition ease-in-out delay-50'
+                          onClick={() => setEditorValue(null)}>Сбросить
+                      </button>
+                      <SubmitButton name={name}/>
+                  </div>
               </div>
           </main>
-          <Footer />
+          <Footer/>
       </div>
 
   );

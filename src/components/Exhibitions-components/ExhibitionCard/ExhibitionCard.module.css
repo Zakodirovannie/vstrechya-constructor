@@ -1,11 +1,12 @@
-h2 {
-    margin: 0;
-}
-p {
-    margin: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.spacer {
+    height: 110px;
 }
 
 .main {
-    height: 1080px;
-    background: url("../../../assets/1st_background.png") center center no-repeat;
+    background: url('../../../assets/default_background.png');
+    min-height: 100vh;
 }
