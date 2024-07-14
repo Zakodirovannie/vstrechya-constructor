@@ -33,7 +33,7 @@ const ExhibitionCard = () => {
         "html_content": "string",
         "json_data": "string"
     });
-    const [editorValue, setEditorValue] = useState<Value | null>(JSON.parse(exhibition.json_data))
+    const [editorValue, setEditorValue] = useState<Value | null>(JSON.parse(exhibition.html_content))
     const dispatch = useDispatch();
 
     useEffect(() => {
