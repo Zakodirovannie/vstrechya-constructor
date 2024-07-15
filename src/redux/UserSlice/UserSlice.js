@@ -3,22 +3,18 @@ import {createSlice} from '@reduxjs/toolkit'
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {},
     image: '',
-    isChanging: false,
+    isError: false,
   },
   reducers: {
-    setUser(state, action) {
-      state.user = action.payload;
-    },
     setImage(state, action) {
       state.image = action.payload
     },
-    setChange(state) {
-        state.isChanging = !state.isChanging;
+    setError(state, action) {
+        state.isError = action.payload;
     }
   },
 })
 
-export const {setUser, setChange, setImage} = userSlice.actions
+export const {setError, setImage} = userSlice.actions
 export default userSlice.reducer

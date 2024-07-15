@@ -8,7 +8,7 @@ const ChangeButton = ({name, id}) => {
     const handleExport = async () => {
         try {
             if (!name || !pageState.rows) {
-                console.error('Name and page state are required');
+                console.error('Название и содержимое выставки обязательны!');
                 return;
             }
             const formData = new FormData();
@@ -18,9 +18,9 @@ const ChangeButton = ({name, id}) => {
             formData.append('html_content', serializedPageState);
             //Отправляем данные на сервер
             const response = await patchExhibition(formData, id);
-            console.log('Page exported successfully:', response.data);
+            console.log('Выставка успешно загружена: ', response.data);
         } catch (error) {
-            console.error('Error exporting the page:', error);
+            console.error('Ошибка при загрузке выставки: ', error);
         }
     };
 

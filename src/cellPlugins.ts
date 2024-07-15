@@ -26,7 +26,12 @@ const ImageUploadService = (endpoint: string): ImageUploadType => {
                 .then(response => {
                     resolve({url: response.data['image_url']});
                 })
-                .catch(error => {
+                .catch(function (error) {
+                    if (error.response) {
+                        // Запрос был сделан, и сервер ответил кодом состояния, который
+                        // выходит за пределы 2xx
+                        console.log(error.response.data);
+                    }
                     reject(error);
                 });
         });

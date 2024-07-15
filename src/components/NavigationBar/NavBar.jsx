@@ -62,7 +62,7 @@ const NavBar = () => {
                         </button>
                     </li>
                     <li>
-                        <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}`)}>СОЦИАЛЬНЫЕ СЕТИ</button>
+                        <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}`)}>СООБЩЕНИЯ</button>
                     </li>
                     {isAuth ?
                         <div className='flex'>

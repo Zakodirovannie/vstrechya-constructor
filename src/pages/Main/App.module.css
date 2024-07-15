@@ -9,3 +9,27 @@
 .main {
     background: url('../../assets/default_background.png');
 }
+
+.warning {
+    border: 1px solid #1e1e1e;
+    border-right: none;
+    border-left: none;
+    padding: 15px;
+    margin-top: auto;
+    margin-bottom: 2%;
+    width: auto;
+    text-align: center;
+    font: 400 18px/1.22 Merriweather, Helvetica, Arial, serif;
+}
+
+.popup {
+    background: rgba(255,255,255,.2);
+    position: fixed;
+    bottom: 10%;
+    right: 1%;
+    z-index: 9999;
+}
+
+.hidden {
+    display: none;
+}

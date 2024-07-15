@@ -10,11 +10,15 @@ import TRANSLATIONS from '../../ru';
 import {useDispatch} from "react-redux";
 import {setPage} from "../../redux/EditorSlice/EditorSlice";
 import Footer from "../../components/Footer/Footer";
+import {useAppSelector} from "../../hooks";
+import {setError} from "../../redux/UserSlice/UserSlice";
+import exit from '../../assets/exit.png'
 
 const App: React.FC = () => {
   const [editorValue, setEditorValue] = useState<Value | null>(null)
   const [name, setName] = useState('')
   const dispatch = useDispatch();
+  const isError = useAppSelector(state => state.user.isError);
 
   const handleChange = (value: Value) => {
     setEditorValue(value);
@@ -33,6 +37,7 @@ const App: React.FC = () => {
           <NavBar />
           <div className={styles.spacer}></div>
           <main className='min-h-screen pt-7 flex flex-col'>
+              <h1 className={styles.warning}>Вы не сможете загрузить сообщения или отправить выставку, если аккаунт не был активирован.</h1>
               <div className="w-3/4 mx-auto min-h-screen hover:shadow-2xl hover:transition ease-in-out flex flex-col">
                   <input
                       className="bg-white mx-auto shadow-2xl p-3 rounded-md w-1/2 font-bold text-3xl mb-10 placeholder:text-center"
@@ -61,6 +66,11 @@ const App: React.FC = () => {
               </div>
           </main>
           <Footer/>
+          <div className={`${isError? styles.popup : styles.hidden}`}>
+            <button className={styles.exit} onClick={() => dispatch(setError(false))}>
+                <img src={exit} alt='Закрыть уведомление' />
+            </button>
+          </div>
       </div>
 
   );

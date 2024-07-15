@@ -1,11 +1,6 @@
 import {instance} from "./api.config.js";
 import {deleteCookie} from "./cookie";
 
-
-export const login = (email, password) => {
-    return instance.post("/auth/signin/", {email, password})
-}
-
 export const logout = () => {
     deleteCookie('sessionId');
     deleteCookie('csrftoken');
@@ -13,26 +8,13 @@ export const logout = () => {
     deleteCookie('refresh_token');
 }
 
-export const getUser = (id) => {
-    return instance.get(`/users/${id}/`)
+export const activation = () => {
+    return instance.post('/auth/send-activation-email/')
 }
 
 export const getMyInfo = () => {
     return instance.get(`/users/me/`)
         .catch(err => console.log('Error: ', err));
-}
-
-export const changeMyPhoto = (photo) => {
-    return instance.post(`/users/upload_avatar/`, photo)
-}
-
-export const changeProfileInfo = (id, last_name, first_name, image_url, phone) => {
-    return instance.post(`/users/${id}/edit`, {
-        first_name,
-        last_name,
-        image_url,
-        phone
-    })
 }
 
 export const getExhibitions = async (id) => {
@@ -44,9 +26,11 @@ export const getExhibitionDetails = (id) => {
 }
 
 export const createExhibition = (exhibition) => {
-    return instance.post(`/constructor/collections/create/`, exhibition);
+    return instance.post(`/constructor/collections/create/`, exhibition)
+        .catch(error => console.log(error.response.data));
 }
 
 export const patchExhibition = (exhibition, id) => {
-    return instance.patch(`/constructor/collections/${id}/`, exhibition);
+    return instance.patch(`/constructor/collections/${id}/`, exhibition)
+        .catch(error => console.log(error.response.data));
 }

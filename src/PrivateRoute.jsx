@@ -1,14 +1,14 @@
-import {Navigate, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 const PrivateRoute = () => {
     const isAuth = useSelector((state) => state.auth.isAuth)
 
-    if (isAuth) {
-        return <Outlet/>
-    } else {
-        return <Navigate to="/login" />;
+    if (!isAuth) {
+        window.location.assign('https://vstrechya.space/login/')
     }
+
+    return <Outlet/>
 };
 
 export default PrivateRoute;

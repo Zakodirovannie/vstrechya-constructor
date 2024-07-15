@@ -14,6 +14,7 @@ const TRANSLATIONS: { [key: string]: string } = {
   'Content is hidden': 'Содержимое скрыто',
   'Duplicate Plugin': 'Продублировать блок',
   'Remove Plugin': 'Удалить блок',
+  'Change size of this window': 'Изменить размер этого окна',
 
   'Image': 'Изображение',
   'Loads an image from an url.': 'Загружает изображение по URL и файлу.',
@@ -28,7 +29,7 @@ const TRANSLATIONS: { [key: string]: string } = {
   'An advanced rich text area.': 'Расширенная область форматированного текста.',
   'Write here...': 'Напишите здесь...',
 
-  'Spacer': 'Проставка',
+  'Spacer': 'Разграничитель',
   'Resizeable, horizontal and vertical empty space.': 'Изменяемое размерное, горизонтальное и вертикальное пустое пространство.',
 
   'Video': 'Видео',
