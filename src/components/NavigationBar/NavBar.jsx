@@ -62,7 +62,7 @@ const NavBar = () => {
                         </button>
                     </li>
                     <li>
-                        <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}`)}>СООБЩЕНИЯ</button>
+                        <button className={styles.navButtons} onClick={() => window.location.assign(`${BASE_URL}/`)}>СООБЩЕНИЯ</button>
                     </li>
                     {isAuth ?
                         <div className='flex'>
@@ -75,7 +75,7 @@ const NavBar = () => {
                             </button>
                             <div className={`${settingsActive ? '' : styles.hidden} ${styles.settings}`}>
                                 <div style={{marginTop: 22 + 'px'}}>
-                                    <button className={styles.settingsButton} onClick={() => navigate('/settings')}>
+                                    <button className={styles.settingsButton} onClick={() => window.location.assign(`${BASE_URL}/settings`)}>
                                         <img src={settings} alt={'Настройки'}/> <span>Настройки</span>
                                     </button>
                                     <button className={styles.settingsButton}>
